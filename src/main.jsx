@@ -9,6 +9,8 @@ import UpdateBrandCar from "./Components/AddBrandCar/UpdateBrandCar.jsx";
 import Root from "./Components/Root/Root.jsx";
 import ErrorPage from "./Components/ErrorPage/ErrorPage";
 import HomePage from "./Components/HomePage/HomePage";
+import AddAllCars from "./Components/AddAllCars/AddAllCars";
+import SeparateCarPage from "./Components/SeparateCarPage/SeparateCarPage";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +21,16 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <HomePage></HomePage>,
+      },
+      {
+        path: "/SeparateCars/:brand",
+        element: <SeparateCarPage></SeparateCarPage>,
+        // loader: (params) => fetch(`http://localhost:5000/Cars/${params.brand}`),
+        loader: () => fetch("http://localhost:5000/Cars"),
+      },
+      {
+        path: "/addAllCars",
+        element: <AddAllCars></AddAllCars>,
       },
     ],
   },

@@ -1,21 +1,29 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
+import "./Navbar.css";
 
 const NavBar = () => {
   const menuBar = (
     <>
       <li>
-        <a>Home</a>
+        <NavLink to="/" className="activeNavLink ">
+          Home
+        </NavLink>
       </li>
       <li>
-        <a>Item 2</a>
+        <NavLink to="/addAllCars" className="activeNavLink ">
+          Add Product
+        </NavLink>
       </li>
       <li>
-        <a>Item 3</a>
+        <NavLink to="/myCart" className="activeNavLink ">
+          My Cart
+        </NavLink>
       </li>
     </>
   );
   return (
-    <div className="mx-5 pb-10 ">
+    <div className="md:mx-5 pb-8 ">
       <div className="navbar  ">
         <div className="navbar-start">
           <div className="dropdown">
@@ -37,7 +45,7 @@ const NavBar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-sm dropdown-content mt-3 z-[2] p-2 shadow bg-base-100 rounded-box w-52"
             >
               {menuBar}
             </ul>
@@ -51,9 +59,9 @@ const NavBar = () => {
           </a>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 text-base">{menuBar}</ul>
+          <ul className="menu menu-horizontal px-1 text-lg">{menuBar}</ul>
         </div>
-        <div className="navbar-end">
+        <div className="navbar-end ">
           {/* right ProPic section */}
           <div className="pr-2 text-base">
             <p>Maruf</p>
@@ -62,7 +70,7 @@ const NavBar = () => {
             className="tooltip tooltip-open tooltip-bottom"
             data-tip="Login Here"
           >
-            <div className="dropdown dropdown-end relative">
+            <div className="dropdown dropdown-end ">
               <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                 <div className="w-10 rounded-full">
                   <img src="https://i.ibb.co/w4b3n6F/avator.png" />
@@ -70,7 +78,7 @@ const NavBar = () => {
               </label>
               <ul
                 tabIndex={0}
-                className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52 absolute"
+                className="mt-3 z-[2] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52 "
               >
                 <li>
                   <a>Profile</a>

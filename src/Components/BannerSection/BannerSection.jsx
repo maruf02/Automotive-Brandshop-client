@@ -24,55 +24,80 @@ const BannerSection = () => {
       >
         <SwiperSlide>
           <div className="relative">
-            <div className="static top-0 left-0 w-full h-full bg-cover bg-center">
-              <div className=" h-full bg-cover bg-center">
-                <img
-                  src="https://i.ibb.co/Syq3DN5/automotive-banner-2.jpg"
-                  alt="Background Image"
-                  className="object-cover w-full h-full"
-                />
-              </div>
-              <div className="absolute top-0 left-0 w-full h-full bg-black opacity-60"></div>
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white z-10">
-                <h1 className="text-5xl font-bold mb-5">Hello there</h1>
-                <p className="mb-5">
-                  Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                  assumenda excepturi exercitationem quasi. In deleniti eaque
-                  aut repudiandae et a id nisi.
-                </p>
-                <button className="btn btn-primary">Get Started</button>
-              </div>
+            <img
+              src="https://i.ibb.co/PzRX0rJ/automotive-banner.jpg"
+              alt="Background Image"
+              className="object-cover w-full h-[600px]"
+            />
+            <div className="absolute top-0 left-0 w-full h-full bg-black opacity-60"></div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white z-10">
+              <h1 className="text-5xl font-bold mb-5 text-[#00ffcc]">
+                Welcome To AUTOMOTIVE
+              </h1>
+              <p className="text-3xl font-semibold text-[#00cc66] mb-5">
+                Your Journey Begins Here.Innovative Cars for Innovative
+                Drivers.A World of Cars, A Universe of Possibilities
+              </p>
             </div>
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className="relative">
-            <div className="absolute top-0 left-0 w-full h-full bg-cover bg-center">
-              <img
-                src="https://i.ibb.co/Syq3DN5/automotive-banner-3.jpg"
-                alt="Background Image"
-                className="object-cover w-full h-full"
-              />
-            </div>
+            <img
+              src="https://i.ibb.co/Syq3DN5/automotive-banner-2.jpg"
+              alt="Background Image"
+              className="object-cover w-full h-[600px]"
+            />
             <div className="absolute top-0 left-0 w-full h-full bg-black opacity-60"></div>
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white z-10">
-              <h1 className="text-5xl font-bold mb-5">Hello there</h1>
-              <p className="mb-5">
-                Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                assumenda excepturi exercitationem quasi. In deleniti eaque aut
-                repudiandae et a id nisi.
+              <h1 className="text-5xl font-bold mb-5 text-[#00ffcc]">
+                Welcome To AUTOMOTIVE
+              </h1>
+              <p className="text-3xl font-semibold text-[#00cc66] mb-5">
+                Your Journey Begins Here.Innovative Cars for Innovative
+                Drivers.A World of Cars, A Universe of Possibilities
               </p>
-              <button className="btn btn-primary">Get Started</button>
             </div>
           </div>
         </SwiperSlide>
-
-        {/* <SwiperSlide>
-          <img src="https://i.ibb.co/Syq3DN5/automotive-banner-2.jpg" alt="" />
+        <SwiperSlide>
+          <div className="relative">
+            <img
+              src="https://i.ibb.co/FVxmZ9Z/automotive-banner-3.jpg"
+              alt="Background Image"
+              className="object-cover w-full h-[600px]"
+            />
+            <div className="absolute top-0 left-0 w-full h-full bg-black opacity-60"></div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white z-10">
+              <h1 className="text-5xl font-bold mb-5 text-[#00ffcc]">
+                Welcome To AUTOMOTIVE
+              </h1>
+              <p className="text-xl md:text-3xl font-semibold text-[#00cc66] mb-5">
+                Your Journey Begins Here.Innovative Cars for Innovative
+                Drivers.A World of Cars, A Universe of Possibilities
+              </p>
+            </div>
+          </div>
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://i.ibb.co/Syq3DN5/automotive-banner-3.jpg" alt="" />
-        </SwiperSlide> */}
+          <div className="relative">
+            <img
+              src="https://i.ibb.co/vvDgL1r/automotive-banner-4.jpg"
+              alt="Background Image"
+              className="object-cover w-full h-[600px]"
+            />
+            <div className="absolute top-0 left-0 w-full h-full bg-black opacity-60"></div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white z-10">
+              <h1 className="text-5xl font-bold mb-5 text-[#00ffcc]">
+                Welcome To AUTOMOTIVE
+              </h1>
+              <p className="text-3xl font-semibold text-[#00cc66] mb-5">
+                Your Journey Begins Here.Innovative Cars for Innovative
+                Drivers.A World of Cars, A Universe of Possibilities
+              </p>
+            </div>
+          </div>
+        </SwiperSlide>
       </Swiper>
     </div>
   );
