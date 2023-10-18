@@ -1,4 +1,5 @@
 import React from "react";
+import Swal from "sweetalert2";
 
 const AddBrandCar = () => {
   const handleAddBrand = (event) => {
@@ -20,6 +21,14 @@ const AddBrandCar = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Success!",
+            text: "Brand Name & Image Insert Successfully",
+            icon: "success",
+            confirmButtonText: "Cool",
+          });
+        }
       });
   };
 
