@@ -19,7 +19,7 @@ const SeparateCarSingleCard = ({ car }) => {
             <Link to={`/carDetails/${brandName}/${_id}`}>
               <button className="btn btn-primary w-full">See Details</button>
             </Link>
-            <Link to={`/updateCarInfo/${_id}`}>
+            <Link to={`/updateCarInfo/${brandName}/${_id}`}>
               <button className="btn btn-primary w-full">Update Info</button>
             </Link>
           </div>
