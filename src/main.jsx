@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AddBrandCar from "./Components/AddBrandCar/AddBrandCar.jsx";
 import ViewBrandCar from "./Components/AddBrandCar/ViewBrandCar.jsx";
@@ -13,6 +12,10 @@ import AddAllCars from "./Components/AddAllCars/AddAllCars";
 import SeparateCarPage from "./Components/SeparateCarPage/SeparateCarPage";
 import CarDetailsPage from "./Components/CarDetailsPage/CarDetailsPage";
 import UpdateCarInfoPage from "./Components/UpdateCarInfoPage/UpdateCarInfoPage";
+import AuthProvider from "./Components/Provider/AuthProvider";
+import SignInPage from "./Components/SignInPage/SignInPage";
+import SignUpPage from "./Components/SignUpPage/SignUpPage";
+import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -33,42 +36,76 @@ const router = createBrowserRouter([
       },
       {
         path: "/carDetails/:brand/:id",
-        element: <CarDetailsPage></CarDetailsPage>,
+        element: (
+          <PrivateRoute>
+            {" "}
+            <CarDetailsPage></CarDetailsPage>
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/Cars/${params.brand}/${params.id}`),
       },
       {
         path: "/updateCarInfo/:brand/:id",
-        element: <UpdateCarInfoPage></UpdateCarInfoPage>,
+        element: (
+          <PrivateRoute>
+            <UpdateCarInfoPage></UpdateCarInfoPage>
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/Cars/${params.brand}/${params.id}`),
       },
       {
         path: "/addAllCars",
-        element: <AddAllCars></AddAllCars>,
+        element: (
+          <PrivateRoute>
+            <AddAllCars></AddAllCars>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/signIn",
+        element: <SignInPage></SignInPage>,
+      },
+      {
+        path: "/addBrand",
+        element: (
+          <PrivateRoute>
+            <AddBrandCar></AddBrandCar>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/viewBrand",
+        element: (
+          <PrivateRoute>
+            <ViewBrandCar></ViewBrandCar>
+          </PrivateRoute>
+        ),
+        loader: () => fetch("http://localhost:5000/Brands"),
+      },
+      {
+        path: "/UpdateBrands/:id",
+        element: (
+          <PrivateRoute>
+            <UpdateBrandCar></UpdateBrandCar>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/Brands/${params.id}`),
+      },
+      {
+        path: "/signUp",
+        element: <SignUpPage></SignUpPage>,
       },
     ],
-  },
-
-  // extra
-  {
-    path: "/createBrandCar",
-    element: <AddBrandCar></AddBrandCar>,
-  },
-  {
-    path: "/brands",
-    element: <ViewBrandCar></ViewBrandCar>,
-    loader: () => fetch("http://localhost:5000/Brands"),
-  },
-  {
-    path: "/UpdateBrands/:id",
-    element: <UpdateBrandCar></UpdateBrandCar>,
-    loader: ({ params }) => fetch(`http://localhost:5000/Brands/${params.id}`),
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>
 );

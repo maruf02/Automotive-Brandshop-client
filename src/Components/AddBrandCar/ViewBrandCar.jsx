@@ -34,48 +34,40 @@ const ViewBrandCar = () => {
     });
   };
   return (
-    <div>
-      <h2>All Brands With Image</h2>
-      {user.map((brand) => (
-        <div key={brand._id}>
-          <div className="overflow-x-auto">
-            <table className="table">
-              {/* head */}
-              <thead>
-                <tr>
-                  <th></th>
-                  <th>Name</th>
-                  <th>Job</th>
-                  <th>Favorite Color</th>
-                </tr>
-              </thead>
-              <tbody>
-                {/* row 1 */}
-                <tr>
-                  <th>1</th>
-                  <td>{brand.BrandName}</td>
-                  <td>
-                    <img src={brand.BrandImage} alt="" className="w-16 h-16" />
-                  </td>
-                  <td>
-                    <div className="btn-group">
-                      <Link to={`/UpdateBrands/${brand._id}`}>
-                        <button className="btn mr-4">Edit</button>
-                      </Link>
-                      <button
-                        onClick={() => handleDelete(brand._id)}
-                        className="btn"
-                      >
-                        X
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+    <div className="container mx-auto flex justify-center py-14">
+      <div className="grid grid-cols-3 gap-10 ">
+        {/* <h2>All Brands With Image</h2> */}
+        {user.map((brand) => (
+          <div key={brand._id}>
+            <div className="card w-96 bg-base-100 shadow-xl w-96 h-80">
+              <figure>
+                <img
+                  src={brand.BrandImage}
+                  alt="Shoes"
+                  className="w-full h-72"
+                />
+              </figure>
+              <div className="h-20 flex justify-between pt-2 mx-3">
+                <div>
+                  <h2 className="card-title pt-2">{brand.BrandName}</h2>
+                </div>
+
+                <div className="flex gap-5">
+                  <Link to={`/UpdateBrands/${brand._id}`}>
+                    <button className="btn btn-primary">Edit</button>
+                  </Link>
+                  <button
+                    onClick={() => handleDelete(brand._id)}
+                    className="btn btn-primary"
+                  >
+                    X
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };

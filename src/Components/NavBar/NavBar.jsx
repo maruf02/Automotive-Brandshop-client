@@ -1,8 +1,14 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
 import "./Navbar.css";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const NavBar = () => {
+  const { user, logOut } = useContext(AuthContext);
+  // console.log(user.photoURL);
+  const handleSignOut = () => {
+    logOut().then().catch();
+  };
   const menuBar = (
     <>
       <li>
@@ -11,14 +17,22 @@ const NavBar = () => {
         </NavLink>
       </li>
       <li>
-        <NavLink to="/addAllCars" className="activeNavLink ">
-          Add Product
-        </NavLink>
+        {user ? (
+          <NavLink to="/addAllCars" className="activeNavLink ">
+            Add Product
+          </NavLink>
+        ) : (
+          ""
+        )}
       </li>
       <li>
-        <NavLink to="/myCart" className="activeNavLink ">
-          My Cart
-        </NavLink>
+        {user ? (
+          <NavLink to="/myCart" className="activeNavLink ">
+            My Cart
+          </NavLink>
+        ) : (
+          ""
+        )}
       </li>
     </>
   );
@@ -61,39 +75,72 @@ const NavBar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 text-lg">{menuBar}</ul>
         </div>
-        <div className="navbar-end ">
-          {/* right ProPic section */}
-          <div className="pr-2 text-base">
-            <p>Maruf</p>
-          </div>
-          <div
-            className="tooltip tooltip-open tooltip-bottom"
-            data-tip="Login Here"
-          >
-            <div className="dropdown dropdown-end ">
-              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                <div className="w-10 rounded-full">
-                  <img src="https://i.ibb.co/w4b3n6F/avator.png" />
-                </div>
-              </label>
-              <ul
-                tabIndex={0}
-                className="mt-3 z-[2] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52 "
-              >
-                <li>
-                  <a>Profile</a>
-                </li>
-                <li>
-                  <a>Settings</a>
-                </li>
-                <li>
-                  <a>Logout</a>
-                </li>
-              </ul>
+        {user ? (
+          <>
+            <div className="navbar-end ">
+              {/* right ProPic section */}
+              <div className="pr-2 text-lg">
+                <p>{user.displayName}</p>
+              </div>
+              <div className="dropdown dropdown-end ">
+                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                  <div className="w-10 rounded-full">
+                    <img src={user?.photoURL} />
+                  </div>
+                </label>
+                <ul
+                  tabIndex={0}
+                  className="mt-3 z-[2] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52 "
+                >
+                  <li>
+                    <Link to="/addBrand">
+                      <button>Add Brand</button>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/viewBrand">
+                      <button>View Brand</button>
+                    </Link>
+                  </li>
+                  <li>
+                    <button onClick={handleSignOut}>Logout</button>
+                  </li>
+                </ul>
+              </div>
+              {/* right ProPic section */}
             </div>
-          </div>
-          {/* right ProPic section */}
-        </div>
+          </>
+        ) : (
+          <>
+            <div className="navbar-end">
+              <div
+                className="tooltip tooltip-open tooltip-bottom "
+                data-tip="Login Here"
+              >
+                <div className="dropdown dropdown-end">
+                  <label
+                    tabIndex={0}
+                    className="btn btn-ghost btn-circle avatar"
+                  >
+                    <div className="w-10 rounded-full">
+                      <img src="https://i.ibb.co/w4b3n6F/avator.png" />
+                    </div>
+                  </label>
+                  <ul
+                    tabIndex={0}
+                    className="mt-3 z-[3] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+                  >
+                    <li>
+                      <Link to="/signIn">
+                        <button>Login</button>
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
