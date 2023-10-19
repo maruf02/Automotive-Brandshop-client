@@ -16,7 +16,7 @@ const SeparateCarSingleCard = ({ car }) => {
           <h2 className="card-title">Price: ${price}</h2>
           <h2 className="card-title">Rating: {rating}</h2>
           <div className="flex gap-2 justify-between py-5 ">
-            <Link to={`/carDetails/${_id}`}>
+            <Link to={`/carDetails/${brandName}/${_id}`}>
               <button className="btn btn-primary w-full">See Details</button>
             </Link>
             <Link to={`/updateCarInfo/${_id}`}>

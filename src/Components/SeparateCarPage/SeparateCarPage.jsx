@@ -10,7 +10,7 @@ import SeparateCarSingleCard from "../SeparateCarSingleCard/SeparateCarSingleCar
 const SeparateCarPage = () => {
   const SeparateCars = useLoaderData();
   const { brand } = useParams();
-  console.log("ds", SeparateCars);
+  console.log("ds", SeparateCars.length);
   return (
     <div>
       {/* slide */}
@@ -29,17 +29,23 @@ const SeparateCarPage = () => {
           modules={[Autoplay, Pagination, Navigation]}
           className="mySwiper"
         >
-          {SeparateCars.slice(0, 4).map((car) => (
-            <SwiperSlide key={car._id}>
-              <div className="relative">
-                <img
-                  src={car.image}
-                  alt="Background Image"
-                  className="object-cover w-full h-[600px]"
-                />
-              </div>
-            </SwiperSlide>
-          ))}
+          {SeparateCars.length >= 1 ? (
+            <>
+              {SeparateCars.slice(0, 4).map((car) => (
+                <SwiperSlide key={car._id}>
+                  <div className="relative">
+                    <img
+                      src={car.image}
+                      alt="Background Image"
+                      className="object-cover w-full h-[600px]"
+                    />
+                  </div>
+                </SwiperSlide>
+              ))}
+            </>
+          ) : (
+            ""
+          )}
         </Swiper>
       </div>
       {/* slide */}
@@ -52,12 +58,18 @@ const SeparateCarPage = () => {
         </div>
         <div className="container mx-auto flex justify-center">
           <div className="  mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-28 ">
-            {SeparateCars.map((car) => (
-              <SeparateCarSingleCard
-                key={car._id}
-                car={car}
-              ></SeparateCarSingleCard>
-            ))}
+            {SeparateCars.length >= 1 ? (
+              <>
+                {SeparateCars.map((car) => (
+                  <SeparateCarSingleCard
+                    key={car._id}
+                    car={car}
+                  ></SeparateCarSingleCard>
+                ))}
+              </>
+            ) : (
+              "No available vcar"
+            )}
           </div>
         </div>
       </div>
