@@ -2,9 +2,12 @@ import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import "./Navbar.css";
 import { AuthContext } from "../Provider/AuthProvider";
+import { useState } from "react";
+import ThemeToggler from "../ThemeToggler/ThemeToggler";
 
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
+  const [selectedTheme, setSelectedTheme] = useState("light");
   // console.log(user.photoURL);
   // console.log(user.displayName);
   // const userName = user.displayName;
@@ -12,6 +15,12 @@ const NavBar = () => {
   const handleSignOut = () => {
     logOut().then().catch();
   };
+
+  const toggleTheme = () => {
+    setSelectedTheme(selectedTheme === "dark" ? "light" : "dark");
+  };
+  const themeClass = selectedTheme === "dark" ? "dark-theme" : "light-theme";
+
   const menuBar = (
     <>
       <li>
@@ -112,6 +121,7 @@ const NavBar = () => {
                 </ul>
               </div>
               {/* right ProPic section */}
+              <ThemeToggler />
             </div>
           </>
         ) : (
@@ -142,6 +152,7 @@ const NavBar = () => {
                   </ul>
                 </div>
               </div>
+              <ThemeToggler />
             </div>
           </>
         )}
