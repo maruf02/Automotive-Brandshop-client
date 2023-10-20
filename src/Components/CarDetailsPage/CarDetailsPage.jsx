@@ -1,15 +1,78 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import StarRatings from "react-star-ratings";
+import { AuthContext } from "../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const CarDetailsPage = () => {
   const carDetails = useLoaderData();
+  const { user } = useContext(AuthContext);
   const { id, image, brandName, name, type, price, rating, description } =
     carDetails;
   console.log(carDetails.name);
   // const singleCarDetails = carDetails.find((car) => car._id === id);
   // const { image, brandName, name, type, price, rating } = singleCarDetails;
   console.log(name);
+
+  const handleMyCart = (event) => {
+    event.preventDefault();
+    console.log("button click");
+    const userName = user.displayName;
+    const Brand = {
+      userName,
+      image,
+      brandName,
+      name,
+      type,
+      price,
+      rating,
+      description,
+    };
+    console.log(Brand);
+
+    fetch("http://localhost:5000/Cart", {
+      method: "GET",
+      headers: {
+        "content-type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        const existingCart = data.find(
+          (cart) => cart.userName === userName && cart.image === image
+        );
+
+        if (existingCart) {
+          Swal.fire({
+            title: "Warning",
+            text: `This cart is already in ${userName}'s cart`,
+            icon: "warning",
+            confirmButtonText: "OK",
+          });
+        } else {
+          fetch("http://localhost:5000/Cart", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(Brand),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              console.log(data);
+              if (data.insertedId) {
+                Swal.fire({
+                  title: "Success!",
+                  text: `Add this Car into ${userName}'s Cart Successfully`,
+                  icon: "success",
+                  confirmButtonText: "Cool",
+                });
+              }
+            });
+        }
+      });
+  };
+
   return (
     <div>
       <h2>CarDetailsPage:{name}</h2>
@@ -69,7 +132,10 @@ const CarDetailsPage = () => {
               </div>
             </div>
             <div className="pt-2 bg-red-400 mx-10 h-12 rounded-2xl text-center">
-              <button className="text-black text-xl font-bold w-full">
+              <button
+                onClick={handleMyCart}
+                className="text-black text-xl font-bold w-full"
+              >
                 Add To Cart
               </button>
             </div>
