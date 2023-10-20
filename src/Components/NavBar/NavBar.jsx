@@ -6,6 +6,9 @@ import { AuthContext } from "../Provider/AuthProvider";
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
   // console.log(user.photoURL);
+  // console.log(user.displayName);
+  // const userName = user.displayName;
+  // console.log(userName);
   const handleSignOut = () => {
     logOut().then().catch();
   };
@@ -27,7 +30,8 @@ const NavBar = () => {
       </li>
       <li>
         {user ? (
-          <NavLink to="/myCart" className="activeNavLink ">
+          // <NavLink to={`/myCart/${userName}`} className="activeNavLink ">
+          <NavLink to="/mycart" className="activeNavLink ">
             My Cart
           </NavLink>
         ) : (

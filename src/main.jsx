@@ -68,6 +68,10 @@ const router = createBrowserRouter([
         element: <SignInPage></SignInPage>,
       },
       {
+        path: "/signUp",
+        element: <SignUpPage></SignUpPage>,
+      },
+      {
         path: "/addBrand",
         element: (
           <PrivateRoute>
@@ -94,17 +98,17 @@ const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`http://localhost:5000/Brands/${params.id}`),
       },
+
       {
-        path: "/signUp",
-        element: <SignUpPage></SignUpPage>,
-      },
-      {
-        path: "myCart",
+        // path: "/myCart/:userName",
+        path: "/myCart",
         element: (
           <PrivateRoute>
             <MyCartPage></MyCartPage>
           </PrivateRoute>
         ),
+        // loader: ({ params }) =>
+        //   fetch(`http://localhost:5000/Cart/${params.userName}`),
         loader: () => fetch("http://localhost:5000/Cart"),
       },
     ],
