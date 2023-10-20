@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import StarRatings from "react-star-ratings";
 
 const SeparateCarSingleCard = ({ car }) => {
   const { _id, image, brandName, name, type, price, rating } = car;
@@ -14,7 +15,18 @@ const SeparateCarSingleCard = ({ car }) => {
           <h2 className="card-title">BrandName: {brandName}</h2>
           <h2 className="card-title">Type: {type}</h2>
           <h2 className="card-title">Price: ${price}</h2>
-          <h2 className="card-title">Rating: {rating}</h2>
+          <div className="flex items-center">
+            {/* <span className="ml-2">Rating: {rating}</span> */}
+            <span className="card-title mr-2">Rating: </span>
+            <StarRatings
+              rating={rating}
+              starRatedColor="#f39c12"
+              numberOfStars={5}
+              name="rating"
+              starDimension="30px" // Adjust the size of the stars
+              starSpacing="2px" // Adjust the spacing between stars
+            />
+          </div>
           <div className="flex gap-2 justify-between py-5 ">
             <Link to={`/carDetails/${brandName}/${_id}`}>
               <button className="btn btn-primary w-full">See Details</button>

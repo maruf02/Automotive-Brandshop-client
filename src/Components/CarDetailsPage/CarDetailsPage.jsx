@@ -1,5 +1,6 @@
 import React from "react";
 import { useLoaderData, useParams } from "react-router-dom";
+import StarRatings from "react-star-ratings";
 
 const CarDetailsPage = () => {
   const carDetails = useLoaderData();
@@ -52,7 +53,18 @@ const CarDetailsPage = () => {
                   <p>BrandName: {brandName}</p>
                   <p>Type: {type}</p>
                   <p>Price: ${price}</p>
-                  <p>Rating: {rating}</p>
+                  <div className="flex items-center">
+                    {/* <span className="ml-2">Rating: {rating}</span> */}
+                    <span className=" mr-2">Rating: </span>
+                    <StarRatings
+                      rating={rating}
+                      starRatedColor="#f39c12"
+                      numberOfStars={5}
+                      name="rating"
+                      starDimension="30px" // Adjust the size of the stars
+                      starSpacing="2px" // Adjust the spacing between stars
+                    />
+                  </div>
                 </div>
               </div>
             </div>

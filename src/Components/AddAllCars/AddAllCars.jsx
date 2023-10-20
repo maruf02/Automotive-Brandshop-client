@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
+import StarRatings from "react-star-ratings";
 import Swal from "sweetalert2";
 
 const AddAllCars = () => {
   const [selectedBrand, setSelectedBrand] = useState("");
   const [allBrands, setAllBrands] = useState([]);
+  const [rating, setRating] = useState(0);
+
   useEffect(() => {
     fetch("http://localhost:5000/Brands")
       .then((res) => res.json())
@@ -17,7 +20,7 @@ const AddAllCars = () => {
     const brandName = form.brandName.value;
     const type = form.type.value;
     const price = form.price.value;
-    const rating = form.rating.value;
+    // const rating = form.rating.value;
     const description = form.description.value;
     const Brand = { image, name, brandName, type, price, rating, description };
     console.log(Brand);
@@ -160,12 +163,23 @@ const AddAllCars = () => {
                       Rating
                     </span>
                   </label>
-                  <input
+                  {/* <input
                     type="text"
                     name="rating"
                     placeholder="Enter Rating here"
                     required
                     className="input input-bordered input-warning w-full bg-transparent text-lg"
+                  /> */}
+
+                  <StarRatings
+                    rating={rating}
+                    starRatedColor="#f39c12"
+                    starHoverColor="#f39c12"
+                    changeRating={setRating}
+                    numberOfStars={5}
+                    starDimension="30px" // Adjust the size of the stars
+                    starSpacing="2px"
+                    name="rating"
                   />
                 </div>
                 <div className="form-control grid grid-rows-2 col-span-2">
