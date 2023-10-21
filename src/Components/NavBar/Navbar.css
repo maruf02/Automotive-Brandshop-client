@@ -3,13 +3,3 @@
   color: chartreuse;
   background: white;
 }
-.dark-theme {
-  background-color: black;
-  color: white;
-}
-
-/* Light Theme */
-.light-theme {
-  background-color: white;
-  color: black;
-}

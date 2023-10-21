@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import "./Navbar.css";
 import { AuthContext } from "../Provider/AuthProvider";
 import { useState } from "react";
-import ThemeToggler from "../ThemeToggler/ThemeToggler";
+import LightDarkMode from "../LightDarkMode/LightDarkMode";
 
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -26,6 +26,21 @@ const NavBar = () => {
       <li>
         <NavLink to="/" className="activeNavLink ">
           Home
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/about" className="activeNavLink ">
+          AboutUS
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/brand" className="activeNavLink ">
+          Brands
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/feature" className="activeNavLink ">
+          Features
         </NavLink>
       </li>
       <li>
@@ -72,7 +87,7 @@ const NavBar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[2] p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-sm dropdown-content mt-3 z-[2] p-2 shadow bg-slate-500 rounded-box w-52"
             >
               {menuBar}
             </ul>
@@ -103,7 +118,7 @@ const NavBar = () => {
                 </label>
                 <ul
                   tabIndex={0}
-                  className="mt-3 z-[2] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52 "
+                  className="mt-3 z-[2] p-2 shadow menu menu-sm dropdown-content bg-slate-500 rounded-box w-52 "
                 >
                   <li>
                     <Link to="/addBrand">
@@ -121,7 +136,7 @@ const NavBar = () => {
                 </ul>
               </div>
               {/* right ProPic section */}
-              <ThemeToggler />
+              <LightDarkMode></LightDarkMode>
             </div>
           </>
         ) : (
@@ -142,7 +157,7 @@ const NavBar = () => {
                   </label>
                   <ul
                     tabIndex={0}
-                    className="mt-3 z-[3] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+                    className="mt-3 z-[3] p-2 shadow menu menu-sm dropdown-content bg-slate-300 rounded-box w-52"
                   >
                     <li>
                       <Link to="/signIn">
@@ -152,7 +167,7 @@ const NavBar = () => {
                   </ul>
                 </div>
               </div>
-              <ThemeToggler />
+              <LightDarkMode></LightDarkMode>
             </div>
           </>
         )}

@@ -74,11 +74,10 @@ const CarDetailsPage = () => {
   };
 
   return (
-    <div>
-      <h2>CarDetailsPage:{name}</h2>
-      <div className=" container mx-auto border  flex gap-2">
+    <div className="pb-[120%] md:pb-[55%] lg:pb-0">
+      <div className=" container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-2">
         {/* left */}
-        <div className="border border-4 w-1/2 ">
+        <div className="w-full  ">
           <div>
             <img src={image} alt="" className="w-full h-[500px] rounded-lg" />
           </div>
@@ -94,12 +93,12 @@ const CarDetailsPage = () => {
         {/* left */}
         {/* right */}
 
-        <div className="border border-4 w-1/2 h-36">
+        <div className="w-full  h-36">
           <div>
             <div className="py-2">
               <div className="card w-full bg-[#3399ff] text-black">
                 <div className="card-body">
-                  <h2 className="card-title text-5xl text-[#000066] font-bold">
+                  <h2 className="card-title text-3xl md:text-5xl text-[#000066] font-bold">
                     {name}
                   </h2>
                   <p className="text-5xl text-red-800 font-bold">${price}</p>
@@ -124,8 +123,8 @@ const CarDetailsPage = () => {
                       starRatedColor="#f39c12"
                       numberOfStars={5}
                       name="rating"
-                      starDimension="30px" // Adjust the size of the stars
-                      starSpacing="2px" // Adjust the spacing between stars
+                      starDimension="30px"
+                      starSpacing="2px"
                     />
                   </div>
                 </div>

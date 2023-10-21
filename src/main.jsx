@@ -17,6 +17,9 @@ import SignInPage from "./Components/SignInPage/SignInPage";
 import SignUpPage from "./Components/SignUpPage/SignUpPage";
 import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 import MyCartPage from "./Components/MyCartPage/MyCartPage";
+import WhyCooseUsPage from "./Components/whyCooseUsPage/whyCooseUsPage";
+import CarBrandPage from "./Components/CarBrandPage/CarBrandPage";
+import FeaturePage from "./Components/FeaturePage/FeaturePage";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +30,18 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <HomePage></HomePage>,
+      },
+      {
+        path: "/about",
+        element: <WhyCooseUsPage></WhyCooseUsPage>,
+      },
+      {
+        path: "/brand",
+        element: <CarBrandPage></CarBrandPage>,
+      },
+      {
+        path: "/feature",
+        element: <FeaturePage></FeaturePage>,
       },
       {
         path: "/SeparateCars/:brand",

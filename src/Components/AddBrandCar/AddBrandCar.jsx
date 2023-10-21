@@ -10,7 +10,6 @@ const AddBrandCar = () => {
     const Brand = { BrandName, BrandImage };
     console.log(Brand);
 
-    //send data to server
     fetch("http://localhost:5000/Brands", {
       method: "POST",
       headers: {

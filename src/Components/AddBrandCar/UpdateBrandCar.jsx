@@ -14,7 +14,6 @@ const UpdateBrandCar = () => {
     const updateBrand = { BrandName, BrandImage };
     console.log(updateBrand);
 
-    //send data to server
     fetch(`http://localhost:5000/Brands/${_id}`, {
       method: "PUT",
       headers: {

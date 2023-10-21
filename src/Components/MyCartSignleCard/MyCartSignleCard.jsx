@@ -33,7 +33,7 @@ const MyCartSignleCard = ({ cart }) => {
   };
 
   return (
-    <div className="flex flex-row rounded-lg card card-compact  bg-base-100 shadow-xl pr-16">
+    <div className="flex flex-row rounded-lg card card-compact  bg-slate-300 text-black shadow-xl pr-16">
       {/* image part */}
       <div className="">
         <img src={image} alt="" className="w-56 h-full rounded-lg" />

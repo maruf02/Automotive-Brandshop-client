@@ -37,7 +37,6 @@ const UpdateCarInfoPage = () => {
     };
     console.log(updateBrand);
 
-    //send data to server
     fetch(`http://localhost:5000/Cars/${_id}`, {
       method: "PUT",
       headers: {
@@ -60,7 +59,7 @@ const UpdateCarInfoPage = () => {
   };
 
   const handleBrandChange = (event) => {
-    setSelectedBrand(event.target.value); // Update the state when the user selects a brand
+    setSelectedBrand(event.target.value);
   };
 
   return (
@@ -128,8 +127,8 @@ const UpdateCarInfoPage = () => {
                     required
                     name="brandName"
                     // defaultValue={brandName}
-                    value={selectedBrand} // Set the value based on the state
-                    onChange={handleBrandChange} // Handle changes
+                    value={selectedBrand}
+                    onChange={handleBrandChange}
                   >
                     <option value="" disabled>
                       Choose Car Brand
@@ -195,7 +194,7 @@ const UpdateCarInfoPage = () => {
                     starHoverColor="#f39c12"
                     changeRating={setRating}
                     numberOfStars={5}
-                    starDimension="30px" // Adjust the size of the stars
+                    starDimension="30px"
                     starSpacing="2px"
                     name="rating"
                   />

@@ -57,7 +57,7 @@ const SeparateCarPage = () => {
           <p className="border-b-4 w-2/4 relative left-[25%] mt-3 border-black"></p>
         </div>
         <div className="container mx-auto flex justify-center">
-          <div className="  mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-28 ">
+          <div className="  mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5  xl:gap-10 ">
             {SeparateCars.length >= 1 ? (
               <>
                 {SeparateCars.map((car) => (
