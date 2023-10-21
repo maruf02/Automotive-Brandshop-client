@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <div className="py-10">
       <div className="text-center">
-        <div className="flex items-center justify-center mb-5 text-2xl font-semibold text-gray-900 dark:text-white">
+        <div className="flex items-center justify-center mb-5 text-2xl font-semibold text-green-700">
           <img
             src="https://i.ibb.co/28PSHPC/logo2.png"
             className="h-12 mr-3 sm:h-9"

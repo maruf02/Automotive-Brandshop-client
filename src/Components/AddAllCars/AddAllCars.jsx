@@ -25,6 +25,13 @@ const AddAllCars = () => {
     const Brand = { image, name, brandName, type, price, rating, description };
     console.log(Brand);
 
+    form.image.value = "";
+    form.name.value = "";
+    form.brandName.value = "";
+    form.type.value = "";
+    form.price.value = "";
+    form.description.value = "";
+
     fetch("http://localhost:5000/Cars", {
       method: "POST",
       headers: {
