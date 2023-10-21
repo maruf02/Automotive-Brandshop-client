@@ -8,7 +8,7 @@ const UpdateCarInfoPage = () => {
   const [allBrands, setAllBrands] = useState([]);
   const [rating, setRating] = useState(0);
   useEffect(() => {
-    fetch("http://localhost:5000/Brands")
+    fetch("https://b8-a10-brans-shop-autocar-server.vercel.app/Brands")
       .then((res) => res.json())
       .then((data) => setAllBrands(data));
   }, []);
@@ -35,9 +35,9 @@ const UpdateCarInfoPage = () => {
       rating,
       description,
     };
-    console.log(updateBrand);
+    // console.log(updateBrand);
 
-    fetch(`http://localhost:5000/Cars/${_id}`, {
+    fetch(`https://b8-a10-brans-shop-autocar-server.vercel.app/Cars/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -46,7 +46,7 @@ const UpdateCarInfoPage = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         if (data.modifiedCount > 0) {
           Swal.fire({
             title: "Success!",

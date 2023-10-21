@@ -4,7 +4,7 @@ import BrandSingleCard from "../BrandSingleCard/BrandSingleCard";
 const CarBrandSection = () => {
   const [allBrands, setAllBrands] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/Brands")
+    fetch("https://b8-a10-brans-shop-autocar-server.vercel.app/Brands")
       .then((res) => res.json())
       .then((data) => setAllBrands(data));
   }, []);

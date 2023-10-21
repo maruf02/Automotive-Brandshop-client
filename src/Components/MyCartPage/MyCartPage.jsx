@@ -8,7 +8,7 @@ const MyCartPage = () => {
   const allCart = useLoaderData();
   const { user } = useContext(AuthContext);
   const userName = user.displayName;
-  console.log(userName);
+  // console.log(userName);
   const filteredCart = allCart.filter((cart) => cart.userName === userName);
   //   console.log(filteredCart);
   return (

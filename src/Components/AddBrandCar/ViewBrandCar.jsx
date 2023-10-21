@@ -6,7 +6,7 @@ const ViewBrandCar = () => {
   const brands = useLoaderData();
   const [user, setUser] = useState(brands);
   // const { _id, BrandName } = brands;
-  console.log(brands);
+  // console.log(brands);
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -19,11 +19,14 @@ const ViewBrandCar = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        console.log(id);
+        // console.log(id);
 
-        fetch(`http://localhost:5000/Brands/${id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://b8-a10-brans-shop-autocar-server.vercel.app/Brands/${id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {

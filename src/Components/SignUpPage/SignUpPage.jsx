@@ -20,7 +20,7 @@ const SignUpPage = () => {
     const image = form.get("ImageURL");
     const email = form.get("email");
     const password = form.get("password");
-    console.log(name, image, email, password);
+    // console.log(name, image, email, password);
     // console.log("pass", password);
     //   create user
     setSignUpError("");

@@ -9,14 +9,14 @@ const CarDetailsPage = () => {
   const { user } = useContext(AuthContext);
   const { id, image, brandName, name, type, price, rating, description } =
     carDetails;
-  console.log(carDetails.name);
+  // console.log(carDetails.name);
   // const singleCarDetails = carDetails.find((car) => car._id === id);
   // const { image, brandName, name, type, price, rating } = singleCarDetails;
-  console.log(name);
+  // console.log(name);
 
   const handleMyCart = (event) => {
     event.preventDefault();
-    console.log("button click");
+    // console.log("button click");
     const userName = user.displayName;
     const Brand = {
       userName,
@@ -28,9 +28,9 @@ const CarDetailsPage = () => {
       rating,
       description,
     };
-    console.log(Brand);
+    // console.log(Brand);
 
-    fetch("http://localhost:5000/Cart", {
+    fetch("https://b8-a10-brans-shop-autocar-server.vercel.app/Cart", {
       method: "GET",
       headers: {
         "content-type": "application/json",
@@ -50,7 +50,7 @@ const CarDetailsPage = () => {
             confirmButtonText: "OK",
           });
         } else {
-          fetch("http://localhost:5000/Cart", {
+          fetch("https://b8-a10-brans-shop-autocar-server.vercel.app/Cart", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -59,7 +59,7 @@ const CarDetailsPage = () => {
           })
             .then((res) => res.json())
             .then((data) => {
-              console.log(data);
+              // console.log(data);
               if (data.insertedId) {
                 Swal.fire({
                   title: "Success!",

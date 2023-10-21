@@ -8,9 +8,9 @@ const AddBrandCar = () => {
     const BrandName = form.BrandName.value;
     const BrandImage = form.BrandImage.value;
     const Brand = { BrandName, BrandImage };
-    console.log(Brand);
+    // console.log(Brand);
 
-    fetch("http://localhost:5000/Brands", {
+    fetch("https://b8-a10-brans-shop-autocar-server.vercel.app/Brands", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -19,7 +19,7 @@ const AddBrandCar = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         if (data.insertedId) {
           Swal.fire({
             title: "Success!",

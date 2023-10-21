@@ -6,7 +6,7 @@ const MyCartSignleCard = ({ cart }) => {
   //   console.log(_id);
 
   const handleDelete = (id) => {
-    console.log(id);
+    // console.log(id);
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -19,9 +19,12 @@ const MyCartSignleCard = ({ cart }) => {
       if (result.isConfirmed) {
         // console.log(id);
 
-        fetch(`http://localhost:5000/Cart/${id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://b8-a10-brans-shop-autocar-server.vercel.app/Cart/${id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {

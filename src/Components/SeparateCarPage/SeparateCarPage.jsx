@@ -10,7 +10,7 @@ import SeparateCarSingleCard from "../SeparateCarSingleCard/SeparateCarSingleCar
 const SeparateCarPage = () => {
   const SeparateCars = useLoaderData();
   const { brand } = useParams();
-  console.log("ds", SeparateCars.length);
+  // console.log("ds", SeparateCars.length);
   return (
     <div>
       {/* slide */}

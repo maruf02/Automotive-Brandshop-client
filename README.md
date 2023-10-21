@@ -1,8 +1,14 @@
-# React + Vite
+# React + Vite +Node + Mongo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# AutoMotiveSolution: This project base on Mern Stack.
 
-Currently, two official plugins are available:
+# Live Link: https://autocar-client.web.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Here is the Important Features of this project:
+
+- This is Mern Stack Base project with firebase Auth Validation.
+- In this project you can add/edit/delete/view product after login
+- you can login via google that helps you save and securable login system
+- you can add your chosen product in your Cart, That you can see anything from your cart option. Also you can Delete product from your cart
+- Also this project use mongo db that effective data loading time and fetch more quicker.
+- More update will come soon, Be patient and see the More functionality.

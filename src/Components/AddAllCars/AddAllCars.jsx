@@ -8,7 +8,7 @@ const AddAllCars = () => {
   const [rating, setRating] = useState(0);
 
   useEffect(() => {
-    fetch("http://localhost:5000/Brands")
+    fetch("https://b8-a10-brans-shop-autocar-server.vercel.app/Brands")
       .then((res) => res.json())
       .then((data) => setAllBrands(data));
   }, []);
@@ -23,7 +23,7 @@ const AddAllCars = () => {
     // const rating = form.rating.value;
     const description = form.description.value;
     const Brand = { image, name, brandName, type, price, rating, description };
-    console.log(Brand);
+    // console.log(Brand);
 
     form.image.value = "";
     form.name.value = "";
@@ -32,7 +32,7 @@ const AddAllCars = () => {
     form.price.value = "";
     form.description.value = "";
 
-    fetch("http://localhost:5000/Cars", {
+    fetch("https://b8-a10-brans-shop-autocar-server.vercel.app/Cars", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -41,7 +41,7 @@ const AddAllCars = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         if (data.insertedId) {
           Swal.fire({
             title: "Success!",

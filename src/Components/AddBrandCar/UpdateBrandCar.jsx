@@ -12,9 +12,9 @@ const UpdateBrandCar = () => {
     const BrandName = form.BrandName.value;
     const BrandImage = form.BrandImage.value;
     const updateBrand = { BrandName, BrandImage };
-    console.log(updateBrand);
+    // console.log(updateBrand);
 
-    fetch(`http://localhost:5000/Brands/${_id}`, {
+    fetch(`https://b8-a10-brans-shop-autocar-server.vercel.app/Brands/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -23,7 +23,7 @@ const UpdateBrandCar = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         if (data.modifiedCount > 0) {
           Swal.fire({
             title: "Success!",

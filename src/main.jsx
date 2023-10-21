@@ -47,8 +47,10 @@ const router = createBrowserRouter([
         path: "/SeparateCars/:brand",
         element: <SeparateCarPage></SeparateCarPage>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/Cars/${params.brand}`),
-        // loader: () => fetch("http://localhost:5000/Cars"),
+          fetch(
+            `https://b8-a10-brans-shop-autocar-server.vercel.app/Cars/${params.brand}`
+          ),
+        // loader: () => fetch("https://b8-a10-brans-shop-autocar-server.vercel.app/Cars"),
       },
       {
         path: "/carDetails/:brand/:id",
@@ -58,7 +60,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/Cars/${params.brand}/${params.id}`),
+          fetch(
+            `https://b8-a10-brans-shop-autocar-server.vercel.app/Cars/${params.brand}/${params.id}`
+          ),
       },
       {
         path: "/updateCarInfo/:brand/:id",
@@ -68,7 +72,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/Cars/${params.brand}/${params.id}`),
+          fetch(
+            `https://b8-a10-brans-shop-autocar-server.vercel.app/Cars/${params.brand}/${params.id}`
+          ),
       },
       {
         path: "/addAllCars",
@@ -101,7 +107,8 @@ const router = createBrowserRouter([
             <ViewBrandCar></ViewBrandCar>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/Brands"),
+        loader: () =>
+          fetch("https://b8-a10-brans-shop-autocar-server.vercel.app/Brands"),
       },
       {
         path: "/UpdateBrands/:id",
@@ -111,7 +118,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/Brands/${params.id}`),
+          fetch(
+            `https://b8-a10-brans-shop-autocar-server.vercel.app/Brands/${params.id}`
+          ),
       },
 
       {
@@ -123,8 +132,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         // loader: ({ params }) =>
-        //   fetch(`http://localhost:5000/Cart/${params.userName}`),
-        loader: () => fetch("http://localhost:5000/Cart"),
+        //   fetch(`https://b8-a10-brans-shop-autocar-server.vercel.app/Cart/${params.userName}`),
+        loader: () =>
+          fetch("https://b8-a10-brans-shop-autocar-server.vercel.app/Cart"),
       },
     ],
   },
